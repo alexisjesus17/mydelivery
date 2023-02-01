@@ -1,0 +1,53 @@
+android:editable="false"
+tools:ignore="Deprecated"
+
+android:enabled="false"
+
+txtorderedqty =  txt_orderedqty
+txtpackageqty = txtpackageqty
+
+
+int current_qty = currentPackingItem.getPackedQty();
+
+
+ private void moveNextPackingItem(){
+
+        if(currentPackingItem.getPackedQty() >= currentPackingItem.getPickedQty()
+                || currentPackingItem.getPackedQty() == 0
+                || currentPackingItem.hasAuthorization()){
+
+            moveNextItem();
+        }
+        else{
+            showMoveItemDialog(true);
+        }
+    }
+    private void moveNextItem(){
+        if(++currentPackingItemPos >= pickingDetails.size()){
+            currentPackingItemPos = (pickingDetails.size()-1);
+        }
+
+        onUpdateValues();
+
+        validatedProduct=false;
+        SoundsManager.playChangeSound();
+    }
+
+
+if(currentPackingItem.getPackedQty() <= currentPackingItem.getPickedQty()
+                    && currentPackingItem.getPickedQty() == 1){
+
+                SoundsManager.playErrorSound();
+                AlertsManager.ShowErrorMessage("Debe terminar esta linea para continuar", this, false);
+
+                return true;
+
+            }
+
+PV01785596
+
+
+2655
+R083378l
+
+
